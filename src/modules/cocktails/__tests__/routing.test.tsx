@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import App from '../../../App';
@@ -10,7 +9,9 @@ it('Редирект к первому элементу кодов', async () =>
       <App />
     </MemoryRouter>,
   );
-  expect(await screen.findByText(/Загрузка страницы/)).toBeInTheDocument();
+
+  const link = await screen.findByRole('link', { name: /Margarita/i });
+  expect(link).toHaveAttribute('aria-current', 'page');
 });
 
 it('Рендер 404 страницы', async () => {
@@ -19,5 +20,8 @@ it('Рендер 404 страницы', async () => {
       <App />
     </MemoryRouter>,
   );
-  expect(await screen.findByText(/404/)).toBeInTheDocument();
+
+  expect(
+    await screen.findByRole('heading', { name: /Страница не найдена/i }),
+  ).toBeInTheDocument();
 });
