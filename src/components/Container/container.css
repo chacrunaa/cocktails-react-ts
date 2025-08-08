@@ -1,0 +1,56 @@
+.app-container {
+  max-width: 1024px;
+  min-width: 360px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+}
+.card {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 12px;
+}
+.active {
+  background: #eef6ff;
+}
+.menu {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.menu a {
+  display: block;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: inherit;
+}
+.menu a:hover {
+  background: #f7f7f7;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.thumb {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #333;
+  border-radius: 6px;
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
